@@ -4,6 +4,10 @@
 
 <h2>Current Recipe List</h2>
 
+<% if flash[:error] %>
+    <p class="error"><%= flash[:error] %></p>
+<% end %>
+
 <% if @grocery_list.recipes != [] %>
     <ul>
         <%= render partial: '/recipes/session_list', collection: @grocery_list.recipes, as: :recipe %>

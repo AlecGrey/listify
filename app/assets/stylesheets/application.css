@@ -22,3 +22,7 @@
  .recipe-description {
      font-size: 14px;
  }
+
+ .error {
+     color: rgb(196, 20, 64);
+ }

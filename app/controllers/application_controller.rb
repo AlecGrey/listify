@@ -2,6 +2,13 @@ class ApplicationController < ActionController::Base
     
     before_action :find_session_grocery_list_id
 
+    def clear
+        reset_session
+        redirect_to root_path
+    end
+
+    private
+
     def find_session_grocery_list_id
         session[:list_id] ||= GroceryList.create.id
     end
