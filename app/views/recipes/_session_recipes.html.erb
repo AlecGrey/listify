@@ -1,0 +1,9 @@
+<!-- Current session recipes -->
+<ul>
+    <% recipes.each do |recipe| %>
+        <li>
+            <%= link_to recipe.name, recipe %>
+            <%= button_to "remove", recipe, method: :delete %>
+        </li>
+    <% end %>
+</ul>

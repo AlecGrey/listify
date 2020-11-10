@@ -1,0 +1,18 @@
+<h1>Welcome to Listify</h1>
+
+<p>If you are new to our website, please visit our <%= link_to "about page", about_path %> for more information.</p>
+
+<h2>Current Recipe List</h2>
+
+<% if session[:recipes] %>
+    <%= render partial: '/recipes/session_recipes', collection: {recipes: session[:recipes]} %>
+<% else %>
+    <p>There are no recipes to show!</p>
+    <p>Explore the recipes below, and click <em>add recipe</em> to add it to your list.</p>
+<% end %>
+
+<h2>All Recipes</h2>
+
+<ul>
+    <%= render partial: '/recipes/recipes', collection: @recipes, as: :recipe %>
+</ul>
