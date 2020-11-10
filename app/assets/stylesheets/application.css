@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+ .recipe-name {
+     font-size: 22px;
+     font-weight: bold;
+ }
+
+ .recipe-description {
+     font-size: 14px;
+ }

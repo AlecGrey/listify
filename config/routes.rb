@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
-  # resources :list_recipes
-  # resources :grocery_lists
   # resources :ingredients
   
+  resources :list_recipes
+  resources :grocery_lists
   resources :foods
   resources :recipes
 

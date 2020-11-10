@@ -9,12 +9,11 @@ class Recipe < ApplicationRecord
     validates :name, uniqueness: true
     validates :description, presence: true
 
-    def add_ingredient(food_obj, quantity, quantity_type)
+    def add_ingredient(food_obj, quantity)
         attrs = {
             :recipe_id => self.id,
             :food_id => food_obj.id,
-            :quantity => quantity,
-            :quantity_type => quantity_type
+            :quantity => quantity
         }
         ingredient = Ingredient.new(attrs)
         if ingredient.save

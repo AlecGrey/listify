@@ -4,8 +4,10 @@
 
 <h2>Current Recipe List</h2>
 
-<% if session[:recipes] %>
-    <%= render partial: '/recipes/session_recipes', collection: {recipes: session[:recipes]} %>
+<% if @grocery_list.recipes != [] %>
+    <ul>
+        <%= render partial: '/recipes/session_list', collection: @grocery_list.recipes, as: :recipe %>
+    </ul>
 <% else %>
     <p>There are no recipes to show!</p>
     <p>Explore the recipes below, and click <em>add recipe</em> to add it to your list.</p>
@@ -14,5 +16,5 @@
 <h2>All Recipes</h2>
 
 <ul>
-    <%= render partial: '/recipes/recipes', collection: @recipes, as: :recipe %>
+    <%= render partial: '/recipes/list', collection: @recipes, as: :recipe %>
 </ul>

@@ -23,22 +23,6 @@ until Recipe.all.count == 20
     recipe.save
 end
 
-def quantifier(faker_str)
-    # takes in a string such as "1/2 tablespoons"
-    # converts to an array such as [0.25, "tablespoons"]
-    arr = []
-    quant = faker_str.split(" ")
-    type = quant[1]
-    if quant[0].include? "/"
-        quant = quant[0].split("/")
-        numb = quant[0].to_f / quant[1].to_f
-    else
-        numb = quant[0]
-    end
-    arr << numb
-    arr << type
-end
-
 Recipe.all.each do |recipe|
 
     ingredients_number = rand(5..10)
@@ -46,8 +30,8 @@ Recipe.all.each do |recipe|
     until recipe.ingredients.count == ingredients_number
 
         food = Food.all.sample
-        quant = quantifier(Faker::Food.measurement)
+        quant = Faker::Food.measurement
 
-        recipe.add_ingredient(food, quant[0], quant[1])
+        recipe.add_ingredient(food, quant)
     end
 end

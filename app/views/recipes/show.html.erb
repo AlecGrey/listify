@@ -1,0 +1,9 @@
+<h1><%= @recipe.name %></h1>
+
+<h3>Description</h3>
+<p><%= @recipe.description %></p>
+
+<h3>Ingredients</h3>
+<ul>
+    <%= render partial: 'ingredients/list', collection: @recipe.ingredients, as: :ingredient %>
+</ul>
