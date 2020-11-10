@@ -14,15 +14,47 @@
  *= require_self
  */
 
- .recipe-name {
+ .recipe_name {
      font-size: 22px;
      font-weight: bold;
  }
 
- .recipe-description {
+ .recipe_description {
      font-size: 14px;
  }
 
  .error {
      color: rgb(196, 20, 64);
+ }
+
+ .inline > * {
+     display: inline;
+ }
+
+ .add_button > * {
+    background-color: white;
+    border: 1px solid rgb(20, 196, 73);
+    color: rgb(20, 196, 73);
+    font-size: 12px;
+    text-align: center;
+    border-radius: 40%;
+}
+
+ .delete_button > * {
+     background-color: white;
+     border: 1px solid rgb(196, 20, 64);
+     color: rgb(196, 20, 64);
+     font-size: 12px;
+     text-align: center;
+     border-radius: 40%;
+ }
+
+ .add_button > *:hover {
+    background-color: rgb(214, 255, 227);
+    cursor: pointer;
+}
+
+ .delete_button > *:hover {
+     background-color: rgb(252, 217, 226);
+     cursor: pointer;
  }

@@ -3,6 +3,7 @@
 <p>If you are new to our website, please visit our <%= link_to "about page", about_path %> for more information.</p>
 
 <h2>Current Recipe List</h2>
+ <%= button_to "View Grocery List", @grocery_list, method: :get %>
 
 <% if flash[:error] %>
     <p class="error"><%= flash[:error] %></p>
@@ -14,7 +15,7 @@
     </ul>
 <% else %>
     <p>There are no recipes to show!</p>
-    <p>Explore the recipes below, and click <em>add recipe</em> to add it to your list.</p>
+    <p>Explore the recipes below, and click <strong>add recipe</strong> button to add it to your list.</p>
 <% end %>
 
 <h2>All Recipes</h2>

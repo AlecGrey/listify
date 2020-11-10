@@ -1,5 +1,7 @@
 <!-- Current session recipes -->
 <li>
-    <span class="recipe-name"><%= link_to recipe.name, recipe %></span>
-    <%= button_to "remove", remove_recipe_path, params: { recipe_obj: recipe }, method: :delete %>
+    <span class="inline">
+        <span class="recipe_name"><%= link_to recipe.name, recipe %></span>
+        <%= button_to "-", remove_recipe_path, params: { recipe_obj: recipe}, form_class: "delete_button", method: :delete %>
+        </span>
 </li><br>
