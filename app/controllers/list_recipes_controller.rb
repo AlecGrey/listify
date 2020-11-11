@@ -13,7 +13,11 @@ class ListRecipesController < ApplicationController
 
     def destroy
         @grocery_list.recipes.delete(@recipe) if @grocery_list.recipes.include?(@recipe)
-        redirect_to root_path
+        if session[:page] == "grocery_list"
+            redirect_to @grocery_list
+        else
+            redirect_to root_path
+        end
     end
 
     private

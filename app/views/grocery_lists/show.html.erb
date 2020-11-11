@@ -1,0 +1,15 @@
+<h1>Grocery List</h1>
+
+<h3>Recipes</h3>
+
+<%= render partial: 'recipes', locals: {grocery_list: @grocery_list} %>
+
+<h3>Grocery List</h3>
+
+<% if @grocery_list.recipes.empty? %>
+    <p>Your grocery list is empty! <%= link_to "go back", root_path %> and add some recipes to your list.</p>
+<% end %>
+
+<ul>
+    <%= render partial: 'list_grocery_items', collection: @grocery_list.final_list, as: :grocery_item %>
+</ul>
