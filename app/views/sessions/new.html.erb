@@ -1,7 +1,6 @@
 <p>If you are new to our website, please visit our <%= link_to "about page", about_path %> for more information.</p>
 <h1>User Login</h1>
 
-
 <% if flash[:error] %>
     <p class="error"><%= flash[:error] %></p>
 <% end %>
@@ -17,3 +16,5 @@
     <%= f.submit "login" %>
 
 <% end %>
+
+<p>Not a user? Sign up <%= link_to "here", sign_up_path %>!</p>

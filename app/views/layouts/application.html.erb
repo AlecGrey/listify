@@ -8,15 +8,18 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <% if session[:page] != "login" %>
 
     <%= link_to "clear cookies", clear_cookies_path, method: :post %>
+
+  <% if session[:page] != "login" && session[:page] != "sign-up"%>
+
     <%= link_to "home", root_path %>
 
     <% if logged_in? %>
       <%= link_to "logout", logout_path %>
     <% else %>
       <%= link_to "login", login_path %>
+      <%= link_to "sign-up", sign_up_path %>
     <% end %>
     
   <% end %>

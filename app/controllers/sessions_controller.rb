@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to root_path
         else
-            flash[:error] = "Incorrect Login!"
+            flash[:error] = "Invalid Login!"
             redirect_to login_path
         end
     end
