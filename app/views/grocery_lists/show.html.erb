@@ -1,6 +1,10 @@
 <h1><%= @grocery_list.date %> List</h1>
 
-<h3>Recipes</h3>
+<h2>Recipes</h2>
+
+<% if flash[:error] %>
+    <p class="error"><%= flash[:error] %></p>
+<% end %>
 
 <%= render partial: 'recipes', locals: {grocery_list: @grocery_list} %>
 
@@ -12,4 +16,10 @@
 
 <ul>
     <%= render partial: 'list_grocery_items', collection: @grocery_list.final_list.sort, as: :grocery_item %>
+</ul>
+
+<h3>Add a Recipe</h3>
+
+<ul>
+    <%= render partial: '/recipes/list', collection: Recipe.all, as: :recipe, locals: {grocery_list: @grocery_list} %>
 </ul>

@@ -16,6 +16,7 @@
     <%# link_to "home", root_path %>
 
     <% if logged_in? %>
+      <%= link_to "home", @user %>
       <%= link_to "logout", '/login', method: :delete %>
     <% else %>
       <%= link_to "login", login_path %>

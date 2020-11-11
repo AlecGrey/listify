@@ -1,4 +1,4 @@
-<h1>Welcome, <%= @user.name %>!</h1>
+<h1>Welcome, <%= @user.name.capitalize %>!</h1>
 
 <h3>All Grocery Lists</h3>
 
@@ -7,7 +7,6 @@
 </ul>
 
 
-<h4>Start a new list</h4>
 <% if flash[:error] %>
     <%= flash[:error] %>
 <% end %>

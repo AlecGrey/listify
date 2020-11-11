@@ -1,6 +1,6 @@
 class ListRecipesController < ApplicationController
     
-    before_action :current_grocery_list_object, :find_recipe
+    before_action :find_recipe, :find_grocery_list
     
     def create
         if @grocery_list.recipes.include?(@recipe)
@@ -8,7 +8,7 @@ class ListRecipesController < ApplicationController
         else
             @grocery_list.recipes << @recipe
         end            
-        redirect_to root_path
+        redirect_to @grocery_list
     end
 
     def destroy
@@ -16,11 +16,15 @@ class ListRecipesController < ApplicationController
         if session[:page] == "grocery_list"
             redirect_to @grocery_list
         else
-            redirect_to root_path
+            redirect_to @grocery_list
         end
     end
 
     private
+
+    def find_grocery_list
+        @grocery_list = GroceryList.find_by_id(params[:grocery_list_obj])
+    end
 
     def find_recipe
         @recipe = Recipe.find_by_id(params[:recipe_obj])

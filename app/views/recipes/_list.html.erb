@@ -1,8 +1,7 @@
-<!-- Recipes to add list -->
 <li>
     <span class="inline">
         <span class="recipe_name"><%= link_to recipe.name, recipe %></span>
-        <%= button_to "+", list_recipes_path, params: { recipe_obj: recipe }, form_class: "add_button", method: :post  %>
+        <%= button_to "+", list_recipes_path, params: { recipe_obj: recipe, grocery_list_obj: grocery_list }, form_class: "add_button", method: :post  %>
     </span>
     <br>
     <span class="recipe_description"><%= recipe.description %></span>

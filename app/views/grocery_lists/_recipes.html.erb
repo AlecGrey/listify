@@ -1,6 +1,6 @@
 <% if grocery_list.recipes != [] %>
     <ul>
-        <%= render partial: '/recipes/session_list', collection: grocery_list.recipes, as: :recipe %>
+        <%= render partial: '/recipes/session_list', collection: grocery_list.recipes, as: :recipe, locals: {grocery_list: grocery_list} %>
     </ul>
 <% else %>
     <p>There are no recipes to show!</p>
