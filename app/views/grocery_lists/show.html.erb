@@ -11,5 +11,5 @@
 <% end %>
 
 <ul>
-    <%= render partial: 'list_grocery_items', collection: @grocery_list.final_list, as: :grocery_item %>
+    <%= render partial: 'list_grocery_items', collection: @grocery_list.final_list.sort, as: :grocery_item %>
 </ul>

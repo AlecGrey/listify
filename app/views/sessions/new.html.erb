@@ -1,0 +1,19 @@
+<p>If you are new to our website, please visit our <%= link_to "about page", about_path %> for more information.</p>
+<h1>User Login</h1>
+
+
+<% if flash[:error] %>
+    <p class="error"><%= flash[:error] %></p>
+<% end %>
+
+<%= form_with scope: :user, url: login_path do |f| %>
+
+    <%= f.label "Username" %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label "Password" %>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.submit "login" %>
+
+<% end %>

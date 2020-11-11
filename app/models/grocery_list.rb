@@ -2,6 +2,7 @@ class GroceryList < ApplicationRecord
 
     has_many :list_recipes, dependent: :destroy
     has_many :recipes, through: :list_recipes
+    belongs_to :user
 
     validate :finalized_must_be_true_if_date_present
 
@@ -14,18 +15,19 @@ class GroceryList < ApplicationRecord
         :gallon => 773
     }
 
+    def final_list
+        # return array of strings, as "Food - quantity"
+        map_to_best_quantity_type.map do |k, v|
+            type = v[0].ceil == 1 ? v[1] : v[1].pluralize
+            "#{k} - #{v[0].ceil} #{type}"
+        end
+    end
+    
+    private
+    
     def finalized_must_be_true_if_date_present
         if date && finalized != true
             errors.add(:finalized, "List must be finalized before a date is added!")
-        end
-    end
-
-    def final_list
-    # return array of strings, as "Food - quantity"
-        map_to_best_quantity_type.map do |k, v|
-            # binding.pry
-            type = v[0].ceil == 1 ? v[1] : v[1].pluralize
-            "#{k} - #{v[0].ceil} #{type}"
         end
     end
 
@@ -62,7 +64,6 @@ class GroceryList < ApplicationRecord
         hash
     end
 
-    # private
 
     def recipe_ingredients
     # Take all the grocery list's recipes and construct a hash of
