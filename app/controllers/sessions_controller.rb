@@ -1,10 +1,9 @@
 class SessionsController < ApplicationController
 
-    before_action :already_logged_in_error, only: :new
+    # before_action :already_logged_in_error, only: :new
     skip_before_action :find_user, only: [:new, :create]
 
     def new
-        byebug
         session[:page] = "login"
     end
 
@@ -30,10 +29,10 @@ class SessionsController < ApplicationController
         params.require(:user).permit(:name, :password)
     end
 
-    def already_logged_in_error
-        if logged_in?
-            flash[:error] = "You are already logged-in as a user!"
-        end
-    end
+    # def already_logged_in_error
+    #     if logged_in?
+    #         flash[:error] = "You are already logged-in as a user!"
+    #     end
+    # end
 
 end

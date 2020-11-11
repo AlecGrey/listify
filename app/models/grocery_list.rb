@@ -4,7 +4,7 @@ class GroceryList < ApplicationRecord
     has_many :recipes, through: :list_recipes
     belongs_to :user
 
-    validate :finalized_must_be_true_if_date_present
+    # validate :finalized_must_be_true_if_date_present
 
     CONV_TO_TSP = {
         :teaspoon => 1,
@@ -25,11 +25,11 @@ class GroceryList < ApplicationRecord
     
     private
     
-    def finalized_must_be_true_if_date_present
-        if date && finalized != true
-            errors.add(:finalized, "List must be finalized before a date is added!")
-        end
-    end
+    # def finalized_must_be_true_if_date_present
+    #     if date && finalized != true
+    #         errors.add(:finalized, "List must be finalized before a date is added!")
+    #     end
+    # end
 
     def map_to_best_quantity_type
     # convert the food items into the highest logical quantity type, then

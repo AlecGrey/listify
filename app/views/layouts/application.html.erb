@@ -13,7 +13,7 @@
 
   <% if session[:page] != "login" && session[:page] != "sign-up"%>
 
-    <%= link_to "home", root_path %>
+    <%# link_to "home", root_path %>
 
     <% if logged_in? %>
       <%= link_to "logout", '/login', method: :delete %>

@@ -5,3 +5,11 @@
 <ul>
     <%= render partial: 'grocery_lists/all_user_lists', collection: @user.grocery_lists, as: :grocery_list %>
 </ul>
+
+
+<h4>Start a new list</h4>
+<% if flash[:error] %>
+    <%= flash[:error] %>
+<% end %>
+
+<%= render partial: 'grocery_lists/new_form', locals: {user: @user} %>

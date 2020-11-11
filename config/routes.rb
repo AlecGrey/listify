@@ -3,11 +3,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   # resources :ingredients
-  resources :grocery_lists
+  # resources :grocery_lists
   resources :foods
   resources :recipes
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
+
+  # ~~ routes for users and nested lists ~~ #
+  resources :users, only: [:new, :create] do
+    resources :grocery_lists, shallow: true
+  end
   
   # ~~ list_recipes routes ~~ #
   resources :list_recipes, only: :create

@@ -1,4 +1,4 @@
-<h1>Grocery List</h1>
+<h1><%= @grocery_list.date %> List</h1>
 
 <h3>Recipes</h3>
 
@@ -7,7 +7,7 @@
 <h3>Grocery List</h3>
 
 <% if @grocery_list.recipes.empty? %>
-    <p>Your grocery list is empty! <%= link_to "go back", root_path %> and add some recipes to your list.</p>
+    <p>Your grocery list is empty!</p>
 <% end %>
 
 <ul>
