@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+    before_action :redirect_to_authorized_user, only: :show
     skip_before_action :find_user, only: [:new, :create]
 
     def show
@@ -42,6 +43,17 @@ class UsersController < ApplicationController
         @user.errors.messages.keys.map do |err|
             convert_errors[err.to_s]
         end        
+    end
+
+    def authorized_user?
+        # byebug
+        params[:id].to_i == session[:user_id].to_i
+    end
+
+    def redirect_to_authorized_user
+        if !authorized_user?
+            redirect_to @user
+        end
     end
 
 end
