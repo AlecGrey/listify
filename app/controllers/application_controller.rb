@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     
-    before_action :clear_page_data
-    before_action :find_session_grocery_list_id
+    before_action :clear_page_data, :find_user, :find_session_grocery_list_id
+
     helper_method :logged_in?
 
     def clear
@@ -31,4 +31,7 @@ class ApplicationController < ActionController::Base
         session.delete :page
     end
 
+    def find_user
+        @user = User.find_by_id(session[:user_id])
+    end
 end

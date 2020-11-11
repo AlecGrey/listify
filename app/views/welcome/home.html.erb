@@ -1,7 +1,10 @@
 <h1>Welcome to Listify</h1>
 
-<h2>Current Recipe List</h2>
- <%= button_to "View Grocery List", @grocery_list, method: :get %>
+<h2>Current Grocery Lists</h2>
+
+<% if @user.grocery_lists %>
+
+<%= render partial: '' %>
 
 <% if flash[:error] %>
     <p class="error"><%= flash[:error] %></p>

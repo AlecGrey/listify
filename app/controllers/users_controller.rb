@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+    skip_before_action :find_user, only: [:new, :create]
+
+    def show
+    end
+    
     def new
         session[:page] = "sign-up"
         @user = User.new
@@ -7,10 +12,14 @@ class UsersController < ApplicationController
 
     def create
         # byebug
-        @user = User.new(user_params)
+        @user = User.new(
+            name: user_params[:name].downcase,
+            password: user_params[:password],
+            password_confirmation: user_params[:password_confirmation]
+        )
         if @user.save
             session[:user_id] = @user.id
-            redirect_to root_path
+            redirect_to @user
         else
             flash[:signup_errors] = parse_errors
             redirect_to sign_up_path

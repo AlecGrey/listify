@@ -1,0 +1,7 @@
+<h1>Welcome, <%= @user.name %>!</h1>
+
+<h3>All Grocery Lists</h3>
+
+<ul>
+    <%= render partial: 'grocery_lists/all_user_lists', collection: @user.grocery_lists, as: :grocery_list %>
+</ul>
