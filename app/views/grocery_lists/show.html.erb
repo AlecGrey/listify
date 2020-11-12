@@ -1,22 +1,31 @@
-<h1><%= @grocery_list.date %> List</h1>
+<h1><%= @grocery_list.date %></h1>
 
-<h2>Recipes</h2>
+<div id='current_data_grid'>
 
-<% if flash[:error] %>
-    <p class="error"><%= flash[:error] %></p>
-<% end %>
+    <h2 id='recipe_header'>Recipes</h2>
+    
+    <div id='recipes'>
 
-<%= render partial: 'recipes', locals: {grocery_list: @grocery_list} %>
+        <%= render partial: 'recipes', locals: {grocery_list: @grocery_list} %>
 
-<h3>Grocery List</h3>
+        <% if flash[:error] %>
+            <p class="error"><%= flash[:error] %></p>
+        <% end %>
+    </div>
 
-<% if @grocery_list.recipes.empty? %>
-    <p>Your grocery list is empty!</p>
-<% end %>
+    <h2 id='list_header'>Grocery List</h2>
+    
+    <div id='list_container'>
 
-<ul>
-    <%= render partial: 'list_grocery_items', collection: @grocery_list.final_list.sort, as: :grocery_item %>
-</ul>
+        <% if @grocery_list.recipes.empty? %>
+            <p>Your grocery list is empty!</p>
+        <% end %>
+
+        <ul class='grocery_list'>
+            <%= render partial: 'list_grocery_items', collection: @grocery_list.final_list.sort, as: :grocery_item %>
+        </ul>
+    </div>
+</div>
 
 <h3>Add a Recipe</h3>
 

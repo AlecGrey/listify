@@ -6,9 +6,8 @@
     <%= render partial: 'grocery_lists/all_user_lists', collection: @user.grocery_lists, as: :grocery_list %>
 </ul>
 
+<%= render partial: 'grocery_lists/new_form', locals: {user: @user} %>
 
 <% if flash[:error] %>
     <p class="error"><%= flash[:error] %></p>
 <% end %>
-
-<%= render partial: 'grocery_lists/new_form', locals: {user: @user} %>

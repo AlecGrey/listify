@@ -4,28 +4,44 @@
     <title>Listify</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
 
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-    <%= link_to "clear cookies", clear_cookies_path, method: :post %>
-
-  <% if session[:page] != "login" && session[:page] != "sign-up"%>
-
-    <%# link_to "home", root_path %>
-
-    <% if logged_in? %>
-      <%= link_to "home", @user %>
-      <%= link_to "logout", '/login', method: :delete %>
-    <% else %>
-      <%= link_to "login", login_path %>
-      <%= link_to "sign-up", sign_up_path %>
-    <% end %>
-    
-  <% end %>
-
   <body>
-    <%= yield %>
+    <div id="page_head">
+
+      <div id="header_links">
+
+        <%= link_to "clear cookies", clear_cookies_path, method: :post %>
+
+        <% if session[:page] != "login" && session[:page] != "sign-up"%>
+
+          <% if logged_in? %>
+
+            <%= link_to "home", root_path %>
+            <%= link_to "logout", '/login', method: :delete %>
+
+          <% else %>
+
+            <%= link_to "login", login_path %>
+            <%= link_to "sign-up", sign_up_path %>
+
+          <% end %>
+        <% end %>
+      </div>
+
+      <%= link_to "Listify", root_path, id: 'listify' %>
+
+    </div>
+  
+    <div class="main"><%= yield %></div>
+
   </body>
 </html>

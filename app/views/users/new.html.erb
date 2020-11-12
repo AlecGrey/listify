@@ -1,25 +1,30 @@
 <h1>Register</h1>
 
-<%= form_with scope: :user, url: sign_up_path do |f| %>
+<%= form_with scope: :user, url: sign_up_path, class: 'user_form' do |f| %>
 
-    <% if flash[:signup_errors] %>
-        <% flash[:signup_errors].each do |err| %>
-            <p class="error"><%= err %></p>
-        <% end %>
-    <% end %>
+    <div>
+        <%= f.label "Username", class: 'label'%>
+        <%= f.text_field :name, class: 'field'%>
+    </div>
 
-    <%= f.label "Username" %>
-    <%= f.text_field :name %>
-    <br>
-    <%= f.label "Password" %>
-    <%= f.password_field :password %>
-    <br>
-    <%= f.label "Confirm" %>
-    <%= f.password_field :password_confirmation %>
+    <div>
+        <%= f.label "Password", class: 'label' %>
+        <%= f.password_field :password, class: 'field' %>
+    </div>
 
-    <br>
-    <%= f.submit "Sign up" %>
+    <div>
+        <%= f.label "Confirm", class: 'label' %>
+        <%= f.password_field :password_confirmation, class: 'field' %>
+    </div>
+
+    <div class='submit_button'><%= f.submit "Sign up" %></div>
 
 <% end %>
 
 <p>Already a user? Login <%= link_to "here", login_path %>.</p>
+    
+<% if flash[:signup_errors] %>
+    <% flash[:signup_errors].each do |err| %>
+        <p class="error"><%= err %></p>
+    <% end %>
+<% end %>

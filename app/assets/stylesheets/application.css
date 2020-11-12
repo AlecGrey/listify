@@ -14,6 +14,15 @@
  *= require_self
  */
 
+ html, body {
+     margin:0; 
+     padding:0;
+     color: rgb(37, 37, 37);
+     font-family: 'Noto Serif JP', serif;
+}
+
+ /* CUSTOM NAME STYLING */
+
  .recipe_name {
      font-size: 22px;
      font-weight: bold;
@@ -28,6 +37,8 @@
      font-size: 14px;
  }
 
+/* ERROR / SUCCESS MESSAGE STYLING */
+
  .error {
      color: rgb(196, 20, 64);
  }
@@ -35,6 +46,8 @@
  .success {
      color: rgb(20, 196, 73);
  }
+
+ /* ALL BUTTON STYLING */
 
  .inline > * {
      display: inline;
@@ -67,3 +80,122 @@
      background-color: rgb(252, 217, 226);
      cursor: pointer;
  }
+
+/* PAGE HEADING STYLES */
+
+#page_head {
+    display: grid;
+    grid-template-columns: 45% auto 45%;
+    background: rgb(15, 152, 216);
+}
+
+#listify {
+    padding: 5px;
+    text-align: center;
+    color: rgb(235, 235, 235);
+    font-family: 'Noto Serif', serif;
+    font-size: 40px;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#listify:active {
+    background: rgb(13, 141, 201);
+}
+
+#header_links {
+    display: flex;
+}
+
+#header_links a {
+    margin: auto 0;
+    padding: 18px 36px;
+    color: rgb(235, 235, 235);
+    text-align: center;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+#header_links a:hover {
+    background: rgb(13, 141, 201);
+}
+
+/* Page Styling */
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+}
+
+/* LOGIN PAGE */
+
+.user_form {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.user_form > * {
+    margin: 2%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "label field"
+}
+
+.user_form > * > .label {
+    grid-area: label;
+}
+
+.user_form > * > .field {
+    grid-area: field;
+}
+
+.user_form > .submit_button {
+    align-self: center;
+    display: block;
+}
+
+/* GROCERY LIST SHOW PAGE */
+
+#current_data_grid {
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: 5% 45% 45% 5%;
+    grid-template-rows: auto;
+    grid-template-areas:
+        ". header_1 header_2 ."
+        ". recipes grocery_list .";
+}
+
+#current_data_grid > #recipe_header {
+    grid-area: header_1;
+    justify-self: center;
+}
+
+#current_data_grid > #list_header {
+    grid-area: header_2;
+    justify-self: center;
+}
+
+#current_data_grid > #recipes {
+    grid-area: recipes;
+    justify-self: start;
+    margin: 0 0 0 25%;
+}
+
+#current_data_grid > #list_container {
+    grid-area: grocery_list;
+    justify-self: center;
+}
+
+.grocery_list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
