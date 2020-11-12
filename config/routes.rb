@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :recipes
   resources :sessions, only: [:new, :create, :destroy]
 
-  # ~~ routes for users and nested lists ~~ #
+  # ~~ routes for users and nested grocery_lists ~~ #
   resources :users, only: [:show, :new, :create] do
     resources :grocery_lists, shallow: true
   end

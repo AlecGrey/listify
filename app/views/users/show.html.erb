@@ -1,6 +1,6 @@
 <h1>Welcome, <%= @user.name.capitalize %>!</h1>
 
-<h3>All Grocery Lists</h3>
+<h2>All Grocery Lists</h2>
 
 <ul>
     <%= render partial: 'grocery_lists/all_user_lists', collection: @user.grocery_lists, as: :grocery_list %>
@@ -8,7 +8,7 @@
 
 
 <% if flash[:error] %>
-    <%= flash[:error] %>
+    <p class="error"><%= flash[:error] %></p>
 <% end %>
 
 <%= render partial: 'grocery_lists/new_form', locals: {user: @user} %>

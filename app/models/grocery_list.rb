@@ -5,6 +5,16 @@ class GroceryList < ApplicationRecord
     belongs_to :user
 
     # validate :finalized_must_be_true_if_date_present
+    validates :date, presence: true
+    validate :date_is_not_past
+
+    def date_is_not_past
+        now = Time.new.to_s[0, 10].split('-').join.to_i
+        d = date.split('-').join.to_i
+        if now >= d
+            errors.add(:date, "Date cannot be in the past!")
+        end
+    end
 
     CONV_TO_TSP = {
         :teaspoon => 1,

@@ -18,6 +18,11 @@
      font-size: 22px;
      font-weight: bold;
  }
+ 
+ .list_name {
+     font-size: 22px;
+     font-weight: bold;
+ }
 
  .recipe_description {
      font-size: 14px;

@@ -1,7 +1,8 @@
 class GroceryListsController < ApplicationController
     
+    before_action :find_list, only: [:show, :destroy]
+
     def show
-        @grocery_list = GroceryList.find(params[:id])
         session[:page] = "grocery_list"
     end
 
@@ -10,12 +11,22 @@ class GroceryListsController < ApplicationController
         if @grocery_list.save
             redirect_to @grocery_list
         else
-            flash[:error] = "Whoops!"
+            flash[:error] = "Please select a valid date."
             redirect_to @user
         end
     end
 
+    def destroy
+        # byebug
+        @grocery_list.destroy
+        redirect_to @user
+    end
+
     private
+
+    def find_list
+        @grocery_list = GroceryList.find(params[:id])
+    end
 
     def list_params
         params.require(:grocery_list).permit(:date, :user_id)

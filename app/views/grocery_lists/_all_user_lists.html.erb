@@ -1,3 +1,6 @@
 <li>
-    <%= link_to grocery_list.date, grocery_list %>
-</li>
+    <span class="inline">
+    <span class="list_name"><%= link_to grocery_list.date, grocery_list %></span>
+    <%= button_to "-", grocery_list, form_class: "delete_button",method: :delete %>
+    </span>
+</li><br>
