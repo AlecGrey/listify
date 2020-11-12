@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users
+  # resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   # resources :ingredients
@@ -9,17 +9,19 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   # ~~ routes for users and nested lists ~~ #
-  resources :users, only: [:new, :create] do
+  resources :users, only: [:show, :new, :create] do
     resources :grocery_lists, shallow: true
   end
-  
+  get '/sign_up', to: 'users#new'
+  post '/sign_up', to: 'users#create'
+
   # ~~ list_recipes routes ~~ #
   resources :list_recipes, only: :create
   delete '/list_recipe', to: 'list_recipes#destroy', as: 'remove_recipe'
 
 
   # ~~ welcome routes ~~ #
-  root 'welcome#home'
+  root 'welcome#re_route'
   get '/about', to: 'welcome#about'
 
   # ~~ application routes ~~ #
@@ -29,9 +31,5 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/login', to: 'sessions#destroy', as: 'logout'
-
-  # ~~ users routes ~~ #
-  get '/sign_up', to: 'users#new'
-  post '/sign_up', to: 'users#create'
 
 end
