@@ -32,6 +32,10 @@
      color: rgb(196, 20, 64);
  }
 
+ .success {
+     color: rgb(20, 196, 73);
+ }
+
  .inline > * {
      display: inline;
  }

@@ -1,14 +1,22 @@
 class ListRecipesController < ApplicationController
     
     before_action :find_recipe, :find_grocery_list
+    skip_before_action :clear_page_data, only: :create
+    after_action :clear_page_data, only: :create
     
     def create
+        # byebug
         if @grocery_list.recipes.include?(@recipe)
             flash[:error] = "That recipe is already on your list!"
         else
+            flash[:success] = "Recipe successfully added."
             @grocery_list.recipes << @recipe
-        end            
-        redirect_to @grocery_list
+        end
+        if session[:page] == "recipe"
+            redirect_to @recipe
+        else          
+            redirect_to @grocery_list
+        end
     end
 
     def destroy

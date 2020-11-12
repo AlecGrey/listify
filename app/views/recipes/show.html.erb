@@ -7,3 +7,19 @@
 <ul>
     <%= render partial: 'ingredients/list', collection: @recipe.ingredients, as: :ingredient %>
 </ul>
+
+<h3>Add to grocery list</h3>
+
+<% if flash[:error] %>
+    <p class="error"><%= flash[:error] %></p>
+<% elsif flash[:success] %>
+    <p class="success"><%= flash[:success] %></p>
+<% end %>
+
+<%= form_with url: list_recipes_path do |f| %>
+
+    <%= f.hidden_field :recipe_obj, value: @recipe.id %>
+    <%= f.collection_select :grocery_list_obj, @user.grocery_lists, :id, :date %>
+    <span class="add_button"><%= f.submit '+' %></span>
+
+<% end %>

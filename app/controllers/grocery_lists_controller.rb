@@ -4,6 +4,7 @@ class GroceryListsController < ApplicationController
 
     def show
         session[:page] = "grocery_list"
+        session[:grocery_list_id] = @grocery_list.id
     end
 
     def create
