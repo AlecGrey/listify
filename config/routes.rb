@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  # resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
-  # resources :ingredients
-  # resources :grocery_lists
-  resources :foods
-  resources :recipes
+  resources :recipes, only: [:show]
   resources :sessions, only: [:new, :create, :destroy]
 
   # ~~ routes for users and nested grocery_lists ~~ #
@@ -22,7 +18,6 @@ Rails.application.routes.draw do
 
   # ~~ welcome routes ~~ #
   root 'welcome#re_route'
-  get '/about', to: 'welcome#about'
 
   # ~~ application routes ~~ #
   post '/clear', to: 'application#clear', as: 'clear_cookies'

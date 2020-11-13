@@ -16,7 +16,7 @@ class WelcomeController < ApplicationController
     #     render :home
     # end
 
-    def about
-    end
+    # def about
+    # end
 
 end

@@ -1,14 +1,14 @@
 <h1><%= @recipe.name %></h1>
 
-<h3>Description</h3>
-<p><%= @recipe.description %></p>
+<h2>Description</h2>
+<p class="recipe_page_description"><%= @recipe.description %></p>
 
-<h3>Ingredients</h3>
+<h2>Ingredients</h2>
 <ul>
     <%= render partial: 'ingredients/list', collection: @recipe.ingredients, as: :ingredient %>
 </ul>
 
-<h3>Add to grocery list</h3>
+<h2>Add to grocery list</h2>
 
 <%= form_with url: list_recipes_path do |f| %>
 

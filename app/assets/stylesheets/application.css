@@ -214,7 +214,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    max-height: 300px;
+    max-height: 550px;
 }
 
 .grocery_list > * {
@@ -243,4 +243,11 @@
     padding: 10px;
     background-color: rgba(212, 212, 212, 0.829);
     box-shadow: 0 0 5px rgba(0,0,0,.05), 2px 2px 5px rgba(0,0,0,.1);
+}
+
+/* RECIPE SHOW PAGE */
+
+.recipe_page_description {
+    margin: 0 20%;  
+    font-size: 16px;
 }

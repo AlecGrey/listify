@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require_relative '../config/environment.rb'
 
+User.destroy_all
 Food.destroy_all
 GroceryList.destroy_all
 Ingredient.destroy_all

@@ -2,6 +2,12 @@
 
 <h2>All Grocery Lists</h2>
 
+<% if @user.grocery_lists.empty? %>
+
+    <p>You have no active grocery lists!</p>
+
+<% end %>
+
 <ul>
     <%= render partial: 'grocery_lists/all_user_lists', collection: @user.grocery_lists, as: :grocery_list %>
 </ul>

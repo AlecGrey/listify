@@ -11,7 +11,7 @@ class GroceryList < ApplicationRecord
     def date_is_not_past
         now = Time.new.to_s[0, 10].split('-').join.to_i
         d = date.split('-').join.to_i
-        if now >= d
+        if now > d
             errors.add(:date, "Date cannot be in the past!")
         end
     end
