@@ -1,4 +1,4 @@
-# *Listify*
+# Listify
 
 ### [Follow this link for a video demonstration!](https://youtu.be/dEenBGEsh8A)
 
