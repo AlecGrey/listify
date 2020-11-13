@@ -1,10 +1,10 @@
 <h1><%= @grocery_list.date %></h1>
 
-<div id='current_data_grid'>
+<div class='current_data_grid'>
 
-    <h2 id='recipe_header'>Recipes</h2>
+    <h2 class='recipe_header'>Recipes</h2>
     
-    <div id='recipes'>
+    <div class='recipes'>
 
         <%= render partial: 'recipes', locals: {grocery_list: @grocery_list} %>
 
@@ -13,12 +13,12 @@
         <% end %>
     </div>
 
-    <h2 id='list_header'>Grocery List</h2>
+    <h2 class='list_header'>Grocery List</h2>
     
-    <div id='list_container'>
+    <div class='list_container'>
 
         <% if @grocery_list.recipes.empty? %>
-            <p>Your grocery list is empty!</p>
+            <p id='empty_list'>Your grocery list is empty!</p>
         <% end %>
 
         <ul class='grocery_list'>
@@ -27,8 +27,10 @@
     </div>
 </div>
 
-<h3>Add a Recipe</h3>
+<h2>Add a Recipe</h2>
 
-<ul>
+
+
+<ul class='all_recipes_list'>
     <%= render partial: '/recipes/list', collection: Recipe.all, as: :recipe, locals: {grocery_list: @grocery_list} %>
 </ul>
