@@ -1,4 +1,6 @@
-# README
+# *Listify*
+
+### [Follow this link for a video demonstration!](https://youtu.be/dEenBGEsh8A)
 
 ## Description
 
@@ -11,7 +13,6 @@ Future functionality should include:
 - Increased grocery-list functionality, such as custom names, a more robust interface, and the ability to generate a printable PDF
 - Mobile functionality
 
-[Follow this link for a video demonstration](https://youtu.be/dEenBGEsh8A)
 
 ## Instructions
 

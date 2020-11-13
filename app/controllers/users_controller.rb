@@ -12,7 +12,6 @@ class UsersController < ApplicationController
     end
 
     def create
-        # byebug
         @user = User.new(
             name: user_params[:name].downcase,
             password: user_params[:password],
@@ -45,7 +44,6 @@ class UsersController < ApplicationController
     # end
 
     def authorized_user?
-        # byebug
         params[:id].to_i == session[:user_id].to_i
     end
 
