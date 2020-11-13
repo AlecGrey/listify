@@ -22,7 +22,7 @@
 <% end %>
 
 <p>Already a user? Login <%= link_to "here", login_path %>.</p>
-    
+
 <% if flash[:signup_errors] %>
     <% flash[:signup_errors].each do |err| %>
         <p class="error"><%= err %></p>

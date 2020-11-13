@@ -22,7 +22,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to @user
         else
-            flash[:signup_errors] = parse_errors
+            flash[:signup_errors] = @user.errors.full_messages
             redirect_to sign_up_path
         end
     end
@@ -33,17 +33,16 @@ class UsersController < ApplicationController
         params.require(:user).permit(:name, :password, :password_confirmation)
     end
 
-    def parse_errors
-        convert_errors = {
-            "password_confirmation" => "Passwords do not match!",
-            "password" => "Password cannot be blank!",
-            "name" => "Username cannot be blank!"
-        }
-
-        @user.errors.messages.keys.map do |err|
-            convert_errors[err.to_s]
-        end        
-    end
+    # def parse_errors
+    #     convert_errors = {
+    #         "password_confirmation" => "Passwords do not match!",
+    #         "password" => "Password cannot be blank!",
+    #         "name" => "Username cannot be blank!"
+    #     }
+    #     @user.errors.messages.keys.map do |err|
+    #         convert_errors[err.to_s]
+    #     end        
+    # end
 
     def authorized_user?
         # byebug
